@@ -2,7 +2,36 @@ import React, { Component } from 'react';
 import {Checkbox, Icon} from "antd";
 
 export class TodoItem extends Component {
+
+  constructor(props){
+    super(props);
+    console.log('初始化组件状态');
+  }
+
+  componentWillMount() {
+    console.log('组件挂载之前');
+  }
+
+  componentDidMount() {
+    console.log('组件挂载完成');
+  }
+
+  componentWillUpdate = () =>{
+    console.log('组件将要更新');
+  }
+
+  componentDidUpdate = () =>{
+    console.log('组件更新完成');
+  }
+
+  componentWillUnmount = () =>{
+    console.log('组件将卸载');
+  }
+
   render() {
+
+    console.log('组件挂载中');
+
     const listItems = this.props.todoList.map((item) =>
       <li key={item.id} className="todo-item">
         <Checkbox checked={item.checked} onChange={(e)=>{this.props.checkboxChange(item,e)}}>
