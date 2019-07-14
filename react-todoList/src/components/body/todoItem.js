@@ -32,13 +32,13 @@ export class TodoItem extends Component {
   render() {
 
     console.log('组件挂载中');
-
-    const listItems = this.props.todoList.map((item) =>
+    const { todoList, checkboxChange, deleteTodo } = this.props;
+    const listItems = todoList.map((item) =>
       <li key={item.id} className="todo-item">
-        <Checkbox checked={item.checked} onChange={(e)=>{this.props.checkboxChange(item,e)}}>
+        <Checkbox checked={item.checked} onChange={(e)=>{checkboxChange(item,e)}}>
           <span className="todo-content">{item.content}</span>
         </Checkbox>
-        <Icon className="todo-close" type="close" onClick={()=>{this.props.deleteTodo(item)}} />
+        <Icon className="todo-close" type="close" onClick={()=>{deleteTodo(item)}} />
       </li>
     );
     return (

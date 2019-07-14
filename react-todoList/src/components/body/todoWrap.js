@@ -99,11 +99,11 @@ export class TodoWrap extends Component {
   };
 
   render() {
-
+    const {todoList, status} = this.state;
     return (
       <div className="todo-wrap">
-        <TodoItem todoList={this.state.todoList} checkboxChange={this.checkboxChange} deleteTodo={this.deleteTodo}/>
-        <TodoHandle total={this.state.todoList.length} status={this.state.status} changehandleStatus={this.changeStatus} clearCompleted={this.clearCompleted}/>
+        <TodoItem todoList={todoList} checkboxChange={this.checkboxChange} deleteTodo={this.deleteTodo}/>
+        <TodoHandle total={todoList.length} status={status} changehandleStatus={this.changeStatus} clearCompleted={this.clearCompleted}/>
       </div>
     );
   }

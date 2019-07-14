@@ -5,29 +5,23 @@ import PropTypes from 'prop-types';
 export class TodoHandle extends Component {
 
   componentDidMount() {
-    this.changeStatus('all');
+    this.props.changehandleStatus('all');
+
   }
 
-  changeStatus = (status)=>{
-    this.props.changehandleStatus(status);
-  };
-
-  clear = ()=>{
-    this.props.clearCompleted();
-  };
-
   render() {
+    const {status, total, changehandleStatus, clearCompleted} = this.props;
     return (
       <div className="todo-handle-position">
         <div className="todo-handle">
-          <span className="todo-handle-total">总数: <span style={{color:"#1890ff"}}>{this.props.total}</span></span>
+          <span className="todo-handle-total">总数: <span style={{color:"#1890ff"}}>{total}</span></span>
           <div className="todo-handle-status">
-            <Button type={this.props.status === 'all' ? 'primary':''} onClick={this.changeStatus.bind(this,'all')}>所有</Button>
-            <Button type={this.props.status === 'unchecked' ? 'primary':''} onClick={this.changeStatus.bind(this,'unchecked')}>未选中</Button>
-            <Button type={this.props.status === 'checked' ? 'primary':''} onClick={this.changeStatus.bind(this,'checked')}>已选中</Button>
+            <Button type={status === 'all' ? 'primary':''} onClick={()=>{changehandleStatus('all')}}>所有</Button>
+            <Button type={status === 'unchecked' ? 'primary':''} onClick={()=>{changehandleStatus('unchecked')}}>未选中</Button>
+            <Button type={status === 'checked' ? 'primary':''} onClick={()=>{changehandleStatus('checked')}}>已选中</Button>
           </div>
           <div className="todo-handle-completed">
-            <Button onClick={this.clear.bind(this)}>清除选中的</Button>
+            <Button onClick={clearCompleted}>清除选中的</Button>
           </div>
         </div>
       </div>

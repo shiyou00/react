@@ -11,7 +11,7 @@ export class TodoInput extends Component {
     }
   }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
       inputValue: e.target.value
     });
@@ -28,13 +28,14 @@ export class TodoInput extends Component {
   };
 
   render() {
+    const { inputValue } = this.state;
     return (
       <div style={{display: 'flex'}}>
         <Input placeholder="输入你想做的事情"
-               value={this.state.inputValue}
-               onChange={this.handleChange.bind(this)}
+               value={inputValue}
+               onChange={this.handleChange}
         />
-        <Button style={{marginLeft: '8px'}} type="primary" onClick={this.handleTodo.bind(this)}>添加</Button>
+        <Button style={{marginLeft: '8px'}} type="primary" onClick={this.handleTodo}>添加</Button>
       </div>
     );
   }
