@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'antd';
+import PropTypes from 'prop-types';
 
 export class TodoHandle extends Component {
 
@@ -33,3 +34,8 @@ export class TodoHandle extends Component {
     );
   }
 }
+TodoHandle.propTypes = {
+  status: PropTypes.oneOf(['all','unchecked','checked']),
+  clearCompleted: PropTypes.func,
+  changehandleStatus: PropTypes.func
+};

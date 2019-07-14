@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Checkbox, Icon} from "antd";
+import PropTypes from 'prop-types';
 
 export class TodoItem extends Component {
 
@@ -54,3 +55,9 @@ export class TodoItem extends Component {
     );
   }
 }
+
+TodoItem.propTypes = {
+  todoList: PropTypes.array,
+  checkboxChange: PropTypes.func,
+  deleteTodo: PropTypes.func
+};
